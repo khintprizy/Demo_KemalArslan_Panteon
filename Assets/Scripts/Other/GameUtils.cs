@@ -14,7 +14,7 @@ public struct EntityModelData
     public Color entityColor;
     public Sprite entityUISprite;
     public Sprite entitySprite;
-    public float entityMaxHealth;
+    //public float entityMaxHealth;
     public EntityType entityType;
 
     public Vector2 GetMouseOffset()
@@ -33,6 +33,7 @@ public struct SoldierUtilities
     public float attackPower;
     public float attackSpeed;
     public float movementSpeed;
+    public float maxHealth;
     public SoldierType soldierType;
     public EntityModelData soldierEntityData;
 }
@@ -41,6 +42,7 @@ public enum BuildingType
 {
     PowerPlantBuilding = 0,
     BarracksBuilding = 1,
+    WallBuilding = 2,
 }
 
 public enum SoldierType
@@ -55,6 +57,7 @@ public enum EntityType
     PowerPlant = 0,
     Barracks = 1,
     Soldier = 2,
+    Wall = 3,
 }
 
 public interface IEntityInit
@@ -82,6 +85,7 @@ public interface IHealth
     void GetDamage(float damageAmount);
     void Die();
     bool IsDead();
+    float MaxHealth();
 
     Action<float, float, float> OnHealthChange { get; set; }
     Action OnDie { get; set; }

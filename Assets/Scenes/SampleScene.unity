@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InformationMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6468069836417668526, guid: f4a37c42fef39ba4e98409d287946f91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6468069836417668527, guid: f4a37c42fef39ba4e98409d287946f91, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -967,6 +971,9 @@ MonoBehaviour:
   - entityPrefab: {fileID: 2726321885862187595, guid: 7c4f276919c098440a05da87cf78b04b, type: 3}
     entityType: 1
     entityPoolList: []
+  - entityPrefab: {fileID: 2591992194435366386, guid: c3fd4ddaddb510549b1c93d3e6e57b4f, type: 3}
+    entityType: 3
+    entityPoolList: []
   instantiateCount: 1
 --- !u!1 &1258523158
 GameObject:
@@ -1078,9 +1085,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1258523162}
     m_Modifications:
+    - target: {fileID: 2476920927332110697, guid: ee280d6f4b4a8564fa2b34f41c5824e7, type: 3}
+      propertyPath: buildingTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476920927332110697, guid: ee280d6f4b4a8564fa2b34f41c5824e7, type: 3}
+      propertyPath: buildingTypes.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676090235878718165, guid: ee280d6f4b4a8564fa2b34f41c5824e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3676090236388371449, guid: ee280d6f4b4a8564fa2b34f41c5824e7, type: 3}
       propertyPath: m_Name
       value: InfiniteScrollView
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676090236388371452, guid: ee280d6f4b4a8564fa2b34f41c5824e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3676090236388371454, guid: ee280d6f4b4a8564fa2b34f41c5824e7, type: 3}
       propertyPath: m_Pivot.x
@@ -1225,7 +1248,6 @@ MonoBehaviour:
     entityColor: {r: 0.2, g: 0.49803922, b: 0.7921569, a: 1}
     entityUISprite: {fileID: 21300000, guid: 4c161d94ede528f4b82a10e7fc6dcd5a, type: 3}
     entitySprite: {fileID: 21300000, guid: a10b5125f55ce0942b65e49ae89f2f4f, type: 3}
-    entityMaxHealth: 50
     entityType: 0
   - entityWidth: 4
     entityHeight: 4
@@ -1234,12 +1256,20 @@ MonoBehaviour:
     entityColor: {r: 0.90588236, g: 0.80784315, b: 0.14117648, a: 1}
     entityUISprite: {fileID: 21300000, guid: 4d8229f9883925541a5bd56b0759581a, type: 3}
     entitySprite: {fileID: 21300000, guid: a10b5125f55ce0942b65e49ae89f2f4f, type: 3}
-    entityMaxHealth: 100
     entityType: 1
+  - entityWidth: 1
+    entityHeight: 1
+    entityName: Wall
+    entityDescription: Wall
+    entityColor: {r: 0.8490566, g: 0.19982761, b: 0.18823424, a: 1}
+    entityUISprite: {fileID: 21300000, guid: 7b90eeb333380b5459b10b71a3b27b53, type: 3}
+    entitySprite: {fileID: 21300000, guid: a10b5125f55ce0942b65e49ae89f2f4f, type: 3}
+    entityType: 3
   soldierUtilityDatas:
   - attackPower: 10
     attackSpeed: 1
     movementSpeed: 3
+    maxHealth: 10
     soldierType: 0
     soldierEntityData:
       entityWidth: 1
@@ -1249,11 +1279,11 @@ MonoBehaviour:
       entityColor: {r: 0.22745098, g: 0.85882354, b: 0.101960786, a: 1}
       entityUISprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
       entitySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-      entityMaxHealth: 10
       entityType: 0
   - attackPower: 5
     attackSpeed: 1
     movementSpeed: 3
+    maxHealth: 10
     soldierType: 1
     soldierEntityData:
       entityWidth: 1
@@ -1263,11 +1293,11 @@ MonoBehaviour:
       entityColor: {r: 0.101960786, g: 0.85882354, b: 0.76862746, a: 1}
       entityUISprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
       entitySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-      entityMaxHealth: 10
       entityType: 0
   - attackPower: 2
     attackSpeed: 1
     movementSpeed: 3
+    maxHealth: 10
     soldierType: 2
     soldierEntityData:
       entityWidth: 1
@@ -1277,13 +1307,14 @@ MonoBehaviour:
       entityColor: {r: 0.8117647, g: 0.101960786, b: 0.85882354, a: 1}
       entityUISprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
       entitySprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-      entityMaxHealth: 10
       entityType: 0
   buildingTypeConverterList:
   - entityType: 0
     buildingType: 0
   - entityType: 1
     buildingType: 1
+  - entityType: 3
+    buildingType: 2
 --- !u!1 &1716105956
 GameObject:
   m_ObjectHideFlags: 0

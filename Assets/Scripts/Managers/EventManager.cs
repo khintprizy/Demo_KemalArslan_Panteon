@@ -13,6 +13,7 @@ public static partial class EventManager
 
     public static Action<BuildingBase, EntityModelData> OnBuildingClickedOnTheGrid { get; set; }
     public static Action<BuildingBase, EntityModelData, List<SoldierType>> OnBuildingWithSoldiersClickedOnTheGrid { get; set; }
+    public static Action<float> OnHealthPanelElementsSet { get; set; }
     public static Action OnSoldierSelected { get; set; }
 
     public static Action OnSoldierStartsToMove { get; set; }

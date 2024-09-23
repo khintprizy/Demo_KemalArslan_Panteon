@@ -11,6 +11,7 @@ public class InfoMenuController : MonoBehaviour
     private BuildingBase currentBuilding;
 
     public Action<EntityModelData> OnInfoMenuViewChange { get; set; }
+    public Action<float> OnHealthElementsSet { get; set; }
     public Action OnNormalBuildingSet { get; set; }
     public Action<List<SoldierType>> OnBuildingWithSoldierSet { get; set; }
 
@@ -28,12 +29,14 @@ public class InfoMenuController : MonoBehaviour
         EventManager.OnBuildingWithSoldiersClickedOnTheGrid += BuildingWithSoldierClickListener;
         EventManager.OnSoldierSelected += OnSoldierSelected;
 
+        EventManager.OnHealthPanelElementsSet += OnHealthPanelElementsSet;
+
         EventManager.CreateBuilding += OnBuildingCreated;
 
         PanelActivation(false);
     }
 
-    
+
 
     private void BuildingClickListener(BuildingBase building, EntityModelData occupierData)
     {
@@ -75,5 +78,10 @@ public class InfoMenuController : MonoBehaviour
 
         currentBuilding.GetComponent<IPickableFromGrid>()?.PickBuildingFromGrid();
         PanelActivation(false);
+    }
+
+    private void OnHealthPanelElementsSet(float maxHealth)
+    {
+        OnHealthElementsSet?.Invoke(maxHealth);
     }
 }

@@ -14,6 +14,7 @@ public class InfoMenuView : MonoBehaviour, IInfoMenuInit
     public void OnInfoMenuInit(InfoMenuController infoMenuController)
     {
         infoMenuController.OnInfoMenuViewChange += SetInfoMenuElements;
+        infoMenuController.OnHealthElementsSet += SetHealthElements;
     }
 
     private void SetInfoMenuElements(EntityModelData occupierData)
@@ -21,6 +22,12 @@ public class InfoMenuView : MonoBehaviour, IInfoMenuInit
         buildingName.text = occupierData.entityName;
         buildingImage.sprite = occupierData.entityUISprite;
         description.text = occupierData.entityDescription;
-        healthText.text = "Total HP " + occupierData.entityMaxHealth;
+        healthText.gameObject.SetActive(false);
+    }
+
+    private void SetHealthElements(float maxHealth)
+    {
+        healthText.gameObject.SetActive(true);
+        healthText.text = "Total HP " + maxHealth;
     }
 }

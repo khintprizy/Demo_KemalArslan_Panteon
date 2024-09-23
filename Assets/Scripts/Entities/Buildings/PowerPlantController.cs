@@ -7,18 +7,20 @@ public class PowerPlantController : BuildingBase, IHealth
 {
     private BuildingFactory factory;
     private float currentHealth;
+    [SerializeField] private float maxHealth;
 
     public Action<float, float, float> OnHealthChange { get; set; }
     public Action OnDie { get; set; }
     public bool IsDead() => isDead;
+    public float MaxHealth() => maxHealth;
 
     public override void Init(EntityModelData entityData)
     {
         base.Init(entityData);
 
         factory = BuildingFactory.Instance;
-        currentHealth = entityModel.entityMaxHealth;
-        OnHealthChange?.Invoke(entityModel.entityMaxHealth, currentHealth, 0);
+        currentHealth = maxHealth;
+        OnHealthChange?.Invoke(maxHealth, currentHealth, 0);
     }
 
     public override void EntityClickedOnBoard()
@@ -26,12 +28,13 @@ public class PowerPlantController : BuildingBase, IHealth
         base.EntityClickedOnBoard();
 
         EventManager.OnBuildingClickedOnTheGrid?.Invoke(this, GetEntityData());
+        EventManager.OnHealthPanelElementsSet?.Invoke(maxHealth);
     }
 
     public void GetDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
-        OnHealthChange?.Invoke(entityModel.entityMaxHealth, currentHealth, damageAmount);
+        OnHealthChange?.Invoke(maxHealth, currentHealth, damageAmount);
 
         if (currentHealth <= 0)
             Die();

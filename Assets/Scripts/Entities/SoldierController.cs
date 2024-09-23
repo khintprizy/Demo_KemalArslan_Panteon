@@ -12,16 +12,18 @@ public class SoldierController : EntityController, IHealth, IRightClickWhileSele
     private SoldierFactory factory;
 
     private float currentHealth;
+    //private float maxHealth;
 
     public Action<float, float, float> OnHealthChange { get; set; }
     public Action OnDie { get; set; }
+    public float MaxHealth() => soldierUtilities.maxHealth;
 
     public override void Init(EntityModelData entityData)
     {
         base.Init(entityData);
         factory = SoldierFactory.Instance;
-        currentHealth = entityData.entityMaxHealth;
-        OnHealthChange?.Invoke(GetEntityData().entityMaxHealth, currentHealth, 0);
+        currentHealth = soldierUtilities.maxHealth;
+        OnHealthChange?.Invoke(soldierUtilities.maxHealth, currentHealth, 0);
     }
 
     public void InitSoldierUtilities(SoldierUtilities soldierUtilities)
@@ -161,7 +163,7 @@ public class SoldierController : EntityController, IHealth, IRightClickWhileSele
     {
         currentHealth -= damageAmount;
 
-        OnHealthChange?.Invoke(GetEntityData().entityMaxHealth, currentHealth, damageAmount);
+        OnHealthChange?.Invoke(soldierUtilities.maxHealth, currentHealth, damageAmount);
 
         if (currentHealth <= 0)
             Die();
