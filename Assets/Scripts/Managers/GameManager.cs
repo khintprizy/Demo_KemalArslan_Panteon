@@ -1,0 +1,13 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    private void Start()
+    {
+        EventManager.OnManagersInit?.Invoke();
+        EventManager.OnGameInit?.Invoke();
+    }
+}
