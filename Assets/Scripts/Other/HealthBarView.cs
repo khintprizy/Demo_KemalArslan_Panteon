@@ -12,11 +12,11 @@ public class HealthBarView : MonoBehaviour, IEntityInit
         IHealth iHealth = entityController.GetComponent<IHealth>();
 
         if (iHealth != null)
-            iHealth.OnHealthChange += OnHealthChange;
+            iHealth.OnSetHealth += OnSetHealth;
 
     }
 
-    private void OnHealthChange(float maxHealth, float currentHealth, float damageAmount)
+    private void OnSetHealth(float maxHealth, float currentHealth)
     {
         bar.localScale = new Vector3(currentHealth / maxHealth, bar.localScale.y, 1);
     }

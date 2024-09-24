@@ -51,13 +51,12 @@ public class GridManager : MonoBehaviour
 
     private void OnGameInit()
     {
-        //factoryManager = FactoryManager.Instance;
-
         grid = new Grid(gridWidth, gridHeight, PixelToWorldSize(sizeByPixel));
         EventManager.OnGridInit?.Invoke(grid);
         pathFindingManager = new Pathfinder(grid);
     }
 
+    
     private void Update()
     {
         hoveredCell = GetCellAccordingTheMovingCursor(inputManager.MouseWorldPosition);
@@ -91,11 +90,11 @@ public class GridManager : MonoBehaviour
     {
         if ((selectedEntity != null) && currentCell != null)
         {
-            //selectedOccupier.OnRightClicked(currentCell, grid);
             selectedEntity.GetComponent<IRightClickWhileSelected>()?.OnRightClickWhileSelected(currentCell, grid);
         }
     }
 
+    // Returns the cell which cursor on
     public GridCell GetCellAccordingTheMovingCursor(Vector2 worldPos)
     {
         GridCell cell = null;
@@ -117,7 +116,6 @@ public class GridManager : MonoBehaviour
                 if (selectedEntity != null)
                     selectedEntity.EntityDeselected();
 
-                // This actor could be building or soldier
                 cell.GetOccupierEntity().EntityClickedOnBoard();
             }
         }
@@ -134,7 +132,6 @@ public class GridManager : MonoBehaviour
             occupier.SetEntityLocation(grid, gridCell);
             SetCurrentEntity(null);
         }
-        // buraya buraya insaa edemezsin gibi bir pop-up gelebilir
     }
 
     public void OnCurrentCellChange(GridCell cell)
@@ -150,7 +147,6 @@ public class GridManager : MonoBehaviour
 
         if (selectedEntity != null)
         {
-            //selectedOccupier.ActionWhileSelected(cell);
             selectedEntity.GetComponent<IAdditionalActionWhileSelected>()?.OnAdditionalActionWhileSelected(cell);
         }
     }
@@ -196,6 +192,7 @@ public class GridManager : MonoBehaviour
         return selectedEntity;
     }
 
+    // Returns the world unit according to given pixel unit
     private float PixelToWorldSize(float pixel)
     {
         return pixel / 100;
@@ -205,28 +202,6 @@ public class GridManager : MonoBehaviour
     {
         return PixelToWorldSize(sizeByPixel);
     }
-
-    //public void CreatePowerPlant()
-    //{
-    //    if (currentEntity != null) return;
-    //    if (selectedEntity != null)
-    //        selectedEntity.EntityDeselected();
-
-    //    BuildingBase powerPlant = BuildingFactory.Instance.GetProduct().GetComponent<BuildingBase>();
-    //    powerPlant.Init(powerPlantData);
-    //    SetCurrentEntity(powerPlant);
-    //}
-
-    //public void CreateBarracks()
-    //{
-    //    if (currentEntity != null) return;
-    //    if (selectedEntity != null)
-    //        selectedEntity.EntityDeselected();
-
-    //    BuildingBase barracks = BarracksFactory.Instance.GetProduct().GetComponent<BuildingBase>();
-    //    barracks.Init(barracksData);
-    //    SetCurrentEntity(barracks);
-    //}
 
     public void CreateBuilding(BuildingType buildingType)
     {
@@ -244,7 +219,9 @@ public class GridManager : MonoBehaviour
         if (selectedEntity == null) return;
         if (selectedEntity.GetComponent<IHealth>().IsDead()) return;
 
+        // Trying to place the soldier to the closest cell to building until find one
         GridCell emptyCell = GetEmptyCellRecursive(selectedEntity);
+
         // that means there is no empty place on the grid
         if (emptyCell == null) return;
 

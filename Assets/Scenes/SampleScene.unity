@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 937242765}
   - component: {fileID: 937242766}
   m_Layer: 0
-  m_Name: GAMEMANAGER
+  m_Name: ----GAMEMANAGER-----(All Managers)----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +628,7 @@ Transform:
   - {fileID: 128130428}
   - {fileID: 1544859886}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &937242766
 MonoBehaviour:
@@ -755,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8102143909530712769, guid: d6610dac37bc1ae4181afa87a10a9b2f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8102143909530712769, guid: d6610dac37bc1ae4181afa87a10a9b2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 1255354159}
   - component: {fileID: 1255354160}
   m_Layer: 0
-  m_Name: Factories
+  m_Name: ----FACTORIES-----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -933,7 +933,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1255354159
 MonoBehaviour:
@@ -1393,7 +1393,7 @@ Transform:
   m_Children:
   - {fileID: 19105976}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2017681565
 MonoBehaviour:

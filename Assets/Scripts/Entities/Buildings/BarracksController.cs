@@ -11,7 +11,8 @@ public class BarracksController : BuildingBase, IHealth
 
     [SerializeField] private List<SoldierType> soldierTypes;
 
-    public Action<float, float, float> OnHealthChange { get; set; }
+    public Action<float> OnHealthChange { get; set; }
+    public Action<float, float> OnSetHealth { get; set; }
     public Action OnDie { get; set; }
     public float MaxHealth() => maxHealth;
 
@@ -24,7 +25,7 @@ public class BarracksController : BuildingBase, IHealth
         base.Init(entityData);
         factory = BuildingFactory.Instance;
         currentHealth = maxHealth;
-        OnHealthChange?.Invoke(maxHealth, currentHealth, 0);
+        OnSetHealth?.Invoke(maxHealth, currentHealth);
     }
 
     public override void EntityClickedOnBoard()
@@ -49,7 +50,9 @@ public class BarracksController : BuildingBase, IHealth
     public void GetDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
-        OnHealthChange?.Invoke(maxHealth, currentHealth, damageAmount);
+
+        OnHealthChange?.Invoke(damageAmount);
+        OnSetHealth?.Invoke(maxHealth, currentHealth);
 
         if (currentHealth <= 0)
             Die();

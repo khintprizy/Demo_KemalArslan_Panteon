@@ -87,7 +87,8 @@ public interface IHealth
     bool IsDead();
     float MaxHealth();
 
-    Action<float, float, float> OnHealthChange { get; set; }
+    Action<float> OnHealthChange { get; set; }
+    Action<float, float> OnSetHealth { get; set; }
     Action OnDie { get; set; }
 }
 
@@ -104,11 +105,6 @@ public interface IRightClickWhileSelected
 public interface IAdditionalActionWhileSelected
 {
     void OnAdditionalActionWhileSelected(GridCell cell);
-}
-
-public interface IPlacementIndicator
-{
-    void SetIndicator(Color indicatorColor);
 }
 
 public interface IOnCreation

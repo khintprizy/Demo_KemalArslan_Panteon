@@ -179,3 +179,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb67e37f86f2234a9247d41e57f8ed8, type: 3}
+--- !u!1001 &5330736457778143827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8746298839765074244}
+    m_Modifications:
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1605
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2785
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282000296704097055, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_Name
+      value: GhostTextController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01cc16a8d626cc944a127dd798178708, type: 3}

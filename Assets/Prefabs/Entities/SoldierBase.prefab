@@ -215,6 +215,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7430348905791306733, guid: 9ff8c8db7f56c994687a1a9486c12548, type: 3}
   m_PrefabInstance: {fileID: 353840414404182337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2670880773333749099
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7202646742768695980}
+    m_Modifications:
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1605
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2469
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810242033445365418, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4606684409027992072, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282000296704097055, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
+      propertyPath: m_Name
+      value: GhostTextController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01cc16a8d626cc944a127dd798178708, type: 3}
 --- !u!1001 &3187189400145397546
 PrefabInstance:
   m_ObjectHideFlags: 0

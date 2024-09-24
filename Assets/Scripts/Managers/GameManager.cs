@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     private void Start()
     {
-        EventManager.OnManagersInit?.Invoke();
         EventManager.OnGameInit?.Invoke();
     }
 }

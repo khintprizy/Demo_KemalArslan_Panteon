@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// THIS CLASS IS THE PARENT CLASS OF ALL THE BUILDINGS AND SOLDIERS ON THE GRID
+
 public abstract class EntityController : MonoBehaviour
 {
     public Action<Color> OnColorChange;
     public Action OnEntitySelected;
     public Action OnEntityDeselected;
 
-    private float cellSize;
     private List<GridCell> occupiedCells = new List<GridCell>();
 
     protected EntityModelData entityModel;
@@ -19,7 +20,6 @@ public abstract class EntityController : MonoBehaviour
     public virtual void Init(EntityModelData entityData)
     {
         entityModel = entityData;
-        this.cellSize = GridManager.Instance.GetCellSize();
         isDead = false;
 
         IEntityInit[] inits = GetComponentsInChildren<IEntityInit>();
@@ -43,6 +43,7 @@ public abstract class EntityController : MonoBehaviour
         return entityModel;
     }
 
+    // this is used while moving entity on the grid to center to the mouse cursor
     public Vector2 GetMouseOffset()
     {
         return entityModel.GetMouseOffset();
@@ -60,6 +61,7 @@ public abstract class EntityController : MonoBehaviour
         EventManager.OnEntitySelected?.Invoke(null);
     }
 
+    // Returns true if all the current cells are empty
     public bool CheckIfCanBePlaced(Grid grid, GridCell targetCell)
     {
         bool canBePlaced = true;
@@ -86,6 +88,7 @@ public abstract class EntityController : MonoBehaviour
         return canBePlaced;
     }
 
+    // Occupies the grid for this entity
     public void SetEntityOnTheGrid(Grid grid, GridCell targetCell)
     {
         int x = targetCell.GetCellXIndex();
@@ -104,6 +107,7 @@ public abstract class EntityController : MonoBehaviour
         }
     }
 
+    // When entity is removed from its place, this function clears the cells
     protected void SetEmptyOccupiedCells()
     {
         for (int i = 0; i < occupiedCells.Count; i++)
@@ -119,6 +123,7 @@ public abstract class EntityController : MonoBehaviour
         return occupiedCells[0];
     }
 
+    // Returns the list of non occupied cells around the entity, according the degree for its range
     public List<GridCell> GetEmptyNeighbors(int degree, GridCell additionalCell = null)
     {
         List<GridCell> emptyNeigbrs = new List<GridCell>();
@@ -145,6 +150,7 @@ public abstract class EntityController : MonoBehaviour
         return emptyNeigbrs;
     }
 
+    // Returns the closest empty cell to the entity
     public GridCell GetClosestEmptyCell(GridCell cell, GridCell soldierCell = null)
     {
         List<GridCell> neighbors = GetEmptyNeighbors(1, soldierCell);
@@ -170,16 +176,10 @@ public abstract class EntityController : MonoBehaviour
     {
         transform.position = targetCell.GetCellPosition();
         SetEntityOnTheGrid(grid, targetCell);
-        //EntityDeselected();
     }
 
-    //public abstract void ActionWhileMovingWhenCreated(GridCell hoveringCell);
-    //public abstract void ActionWhileSelected(GridCell cell);
-    //protected abstract void SetIndicator(Color color);
     protected void SetIndicator(Color color)
     {
         OnColorChange?.Invoke(color);
     }
-
-    //public abstract void OnRightClicked(GridCell cell, Grid grid);
 }

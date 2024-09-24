@@ -5,7 +5,6 @@ using UnityEngine;
 
 public static partial class EventManager
 {
-    public static Action OnManagersInit { get; set; }
     public static Action OnGameInit { get; set; }
     public static Action<Grid> OnGridInit { get; set; }
 
